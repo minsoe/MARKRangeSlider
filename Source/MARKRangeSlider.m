@@ -334,6 +334,12 @@ static NSString * const kMARKRangeSliderTrackRangeImage = @"rangeSliderTrackRang
     _leftValue = leftValue;
 
     [self setNeedsLayout];
+    
+    if (self.delegate &&
+        [self.delegate
+         respondsToSelector:@selector(MARKRangeSliderValueDidChange:)]) {
+            [self.delegate MARKRangeSliderValueDidChange:self];
+        }
 }
 
 - (void)setRightValue:(CGFloat)rightValue
@@ -365,6 +371,12 @@ static NSString * const kMARKRangeSliderTrackRangeImage = @"rangeSliderTrackRang
     _rightValue = rightValue;
 
     [self setNeedsLayout];
+    
+    if (self.delegate &&
+        [self.delegate
+         respondsToSelector:@selector(MARKRangeSliderValueDidChange:)]) {
+            [self.delegate MARKRangeSliderValueDidChange:self];
+        }
 }
 
 - (void)setMinimumDistance:(CGFloat)minimumDistance

@@ -1,4 +1,5 @@
 #import <UIKit/UIKit.h>
+@protocol MARKRangeSliderDelegate;
 
 @interface MARKRangeSlider : UIControl
 
@@ -24,8 +25,17 @@
 @property (nonatomic) UIImage *leftThumbImage;
 @property (nonatomic) UIImage *rightThumbImage;
 
+@property (nonatomic, weak) IBOutlet id<MARKRangeSliderDelegate> delegate;
+
 // Configuration
 - (void)setMinValue:(CGFloat)minValue maxValue:(CGFloat)maxValue;
 - (void)setLeftValue:(CGFloat)leftValue rightValue:(CGFloat)rightValue;
+
+@end
+
+@protocol MARKRangeSliderDelegate <NSObject>
+
+@optional
+- (void)MARKRangeSliderValueDidChange:(MARKRangeSlider*)slider;
 
 @end
