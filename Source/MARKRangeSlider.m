@@ -195,6 +195,9 @@ static NSString * const kMARKRangeSliderTrackRangeImage = @"rangeSliderTrackRang
 
         [self sendActionsForControlEvents:UIControlEventValueChanged];
     }
+    if(gesture.state == UIGestureRecognizerStateEnded) {
+        [self sendActionsForControlEvents:UIControlEventTouchUpInside];
+    }
 }
 
 - (void)handleRightPan:(UIPanGestureRecognizer *)gesture
@@ -213,6 +216,9 @@ static NSString * const kMARKRangeSliderTrackRangeImage = @"rangeSliderTrackRang
         [gesture setTranslation:CGPointZero inView:self];
 
         [self sendActionsForControlEvents:UIControlEventValueChanged];
+    }
+    if(gesture.state == UIGestureRecognizerStateEnded) {
+        [self sendActionsForControlEvents:UIControlEventTouchUpInside];
     }
 }
 
